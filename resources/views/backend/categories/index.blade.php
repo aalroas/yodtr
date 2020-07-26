@@ -39,11 +39,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">universities</h4>
-                    <a href="{{route('universities.create')}}"> <button type="button"
+                    <h4 class="card-title">categories</h4>
+                    <a href="{{route('categories.create')}}"> <button type="button"
                                 class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i
                                class="feather icon-user"></i> Add New
-                            universities</button></a>
+                            category</button></a>
                 </div>
                 <div class="card-content">
                     <div class="card-body card-dashboard">
@@ -60,15 +60,6 @@
                                                aria-describedby="DataTables_Table_0_info">
                                             <thead>
                                                 <tr role="row">
-
-                                                    <th class="sorting_asc"
-                                                        tabindex="0"
-                                                        aria-controls="DataTables_Table_0"
-                                                        rowspan="1"
-                                                        colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="logo: activate to sort column descending"
-                                                        style="width: 50px;">logo</th>
                                                     <th class="sorting_asc"
                                                         tabindex="0"
                                                         aria-controls="DataTables_Table_0"
@@ -76,82 +67,34 @@
                                                         colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="Name: activate to sort column descending"
-                                                        style="width: 50px;">Name</th>
-                                                    <th class="sorting_asc"
-                                                        tabindex="0"
-                                                        aria-controls="DataTables_Table_0"
-                                                        rowspan="1"
-                                                        colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="branch_id: activate to sort column descending"
-                                                        style="width: 50px;">branch </th>
-                                                    <th class="sorting_asc"
-                                                        tabindex="0"
-                                                        aria-controls="DataTables_Table_0"
-                                                        rowspan="1"
-                                                        colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="city: activate to sort column descending"
-                                                        style="width: 50px;">city</th>
-                                                    <th class="sorting_asc"
-                                                        tabindex="0"
-                                                        aria-controls="DataTables_Table_0"
-                                                        rowspan="1"
-                                                        colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="show_in_home: activate to sort column descending"
-                                                        style="width: 50px;">show_in_home</th>
+                                                        style="width: 271px;">Name</th>
+
                                                     <th class="sorting"
                                                         tabindex="0"
                                                         aria-controls="DataTables_Table_0"
                                                         rowspan="1"
                                                         colspan="1"
                                                         aria-label="Salary: activate to sort column ascending"
-                                                        style="width: 50px;">Action</th>
+                                                        style="width: 138px;">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($universities as $university)
+                                                @foreach ($categories as $category)
                                                 <tr role="row"
                                                     class="odd">
 
-                                                    <td> <img style="height: 50px;width: 50px;"
-                                                             class="img-circle"
-                                                             src="{{ asset('uploads/universities/logo/')}}/{{$university->logo }}">
-                                                    </td>
+                                                    <td class="sorting_1">{{ $category->name }}</td>
 
-                                                    <td class="sorting_1">{{ $university->name }}</td>
-
-
-                                                    <td class="sorting_1">{{ $university->branch->name }}</td>
-
-                                                    <td class="sorting_1">{{ $university->city->name }}</td>
-
-
-                                                    <td class="sorting_1"> @if ( $university->show_in_home == 1)
-                                                        yes
-                                                        @else
-                                                        no
-                                                        @endif
-
-                                                    </td>
-
-                                                    <td class="sorting_1">
-                                                        <a href="{{   route('universities.edit',$university->id) }}"
-                                                           class="btn btn-xs btn-success font-small"> <i
-                                                               class="feather icon-eye font-medium-5"></i> </a>
-
-                                                        <a href="{{   route('universities.edit',$university->id) }}"
-                                                           class="btn btn-xs btn-info font-small"> <i
+                                                    <td>
+                                                        <a href="{{   route('categories.edit',$category->id) }}"
+                                                            class="btn btn-xs btn-info"> <i
                                                                class="feather icon-edit font-medium-5"></i> </a>
-                                                        <a id="progress-bar"
-                                                           href="javascript:;"
+                                                        <a id="progress-bar" href="javascript:;"
                                                            data-toggle="modal"
-                                                           onclick="deleteData({{$university->id}})"
+                                                           onclick="deleteData({{$category->id}})"
                                                            data-target="#DeleteModal"
-                                                           class="btn btn-xs btn-danger font-small"> <i
+                                                           class="btn btn-xs btn-danger"> <i
                                                                class="feather icon-trash font-medium-5"></i></a>
-
 
                                                     </td>
                                                 </tr>
@@ -203,7 +146,7 @@
                                             function deleteData(id)
                                                     {
                                                         var id = id;
-                                                        var url = '{{ route("universities.destroy", ":id") }}';
+                                                        var url = '{{ route("categories.destroy", ":id") }}';
                                                         url = url.replace(':id', id);
                                                         $("#deleteForm").attr('action', url);
                                                     }
@@ -229,6 +172,7 @@
 @endsection
 @section('js')
 <!-- BEGIN: Page Vendor JS-->
+
 
 <script src="{{asset('backend/app-assets/js/scripts/datatables/datatable.js')}}"></script>
 <script src="{{asset('backend/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>

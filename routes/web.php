@@ -29,6 +29,11 @@
         Route::resource('achievementtypes', 'AchievementTypeController');
         Route::resource('achievements', 'AchievementController');
         Route::resource('sliders', 'SliderController');
+        Route::resource('tags', 'TagController');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('news', 'CategoryController');
+
+
 
     });
 

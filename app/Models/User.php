@@ -61,4 +61,14 @@ class User extends Authenticatable
     }
 
 
+    public function posts()
+    {
+        return $this->hasMany("Post");
+    }
+    public function scientificarticles()
+    {
+        return $this->hasMany("ScientificArticle");
+    }
+
+
 }

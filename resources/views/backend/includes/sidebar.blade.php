@@ -56,6 +56,12 @@
             <li><a class="nav-link"
                    href="{{ route('sliders.index') }}">Manage Sliders</a></li>
 
+
+                   <li><a class="nav-link"
+                           href="{{ route('tags.index') }}">Manage tags</a></li>
+                    <li><a class="nav-link"
+                           href="{{ route('categories.index') }}">Manage categories</a></li>
+
             {{-- @endcan --}}
             <li class="nav-item dropdown">
                 <a id="navbarDropdown"

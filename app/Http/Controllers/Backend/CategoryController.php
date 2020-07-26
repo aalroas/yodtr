@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('backend.categories.index', compact('categories'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.categories.create');
     }
 
     /**
@@ -35,7 +38,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'name_tr' => 'required',
+        ]);
+
+
+
+        $category = new  Category();
+
+
+        $category->name_ar = $request->name_ar;
+        $category->name_tr = $request->name_tr;
+        $category->name_en = $request->name_en;
+
+        $category->slug = Str::slug($request->name_en, '-');
+
+
+        $category->save();
+
+
+        return redirect(route('categories.index'))->with('success', trans('Information has been added successfully'));
     }
 
     /**
@@ -57,7 +81,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+
+        return view('backend.categories.edit', compact('category'));
     }
 
     /**
@@ -69,7 +94,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        request()->validate([
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'name_tr' => 'required',
+        ]);
+
+
+        $category->name_ar = $request->name_ar;
+        $category->name_tr = $request->name_tr;
+        $category->name_en = $request->name_en;
+        $category->slug = Str::slug($request->name_en, '-');
+        $category->update();
+        return redirect(route('categories.index'))->with('success', trans('Information has been updated successfully'));
     }
 
     /**
@@ -80,6 +117,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect(route('categories.index'))->with('success', trans('Information has been deleted successfully'));
     }
 }

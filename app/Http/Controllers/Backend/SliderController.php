@@ -132,7 +132,6 @@ class SliderController extends Controller
     {
       request()->validate([
             'title_ar' => 'required',
-            'image' => 'required',
             'text_ar' => 'required',
         ]);
 

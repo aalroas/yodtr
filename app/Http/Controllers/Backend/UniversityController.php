@@ -161,7 +161,6 @@ class UniversityController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
             'name_tr' => 'required',
-            'logo' => 'required',
         ]);
 
         if ($request->hasFile('logo')) {
