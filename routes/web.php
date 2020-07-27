@@ -20,7 +20,6 @@
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('roles', 'RoleController');
         Route::resource('users', 'UserController');
-        Route::resource('posts', 'PostController');
         Route::resource('branches', 'BranchController');
         Route::resource('cities', 'CityController');
         Route::resource('universities', 'UniversityController');
@@ -31,7 +30,8 @@
         Route::resource('sliders', 'SliderController');
         Route::resource('tags', 'TagController');
         Route::resource('categories', 'CategoryController');
-        Route::resource('news', 'CategoryController');
+        Route::resource('news', 'NewsController');
+        Route::resource('posts', 'PostController');
 
 
 
