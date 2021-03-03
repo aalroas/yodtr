@@ -37,7 +37,7 @@
     "gulp-watch": "^5.0.1",
     "merge-stream": "^2.0.0",
     "minimist": "^1.2.0",
-    "pug": "^2.0.4"
+    "pug": "^3.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
