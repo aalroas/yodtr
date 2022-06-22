@@ -12,7 +12,7 @@
   "homepage": "https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/",
   "main": "gulpfile.js",
   "dependencies": {
-    "async": "^3.1.0",
+    "async": "^3.2.2",
     "gulp-cli": "^2.2.0",
     "gulp-w3c-html-validator": "^1.4.4",
     "node-notifier": "^5.4.3",
